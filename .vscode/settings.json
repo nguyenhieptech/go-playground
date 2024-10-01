@@ -3,7 +3,7 @@
   "editor.formatOnPaste": true,
   "editor.lineHeight": 21,
   "editor.fontSize": 13,
-  "editor.tabSize": 2,
+  "editor.tabSize": 4,
   "[go]": {
     "editor.defaultFormatter": "golang.go",
     "editor.insertSpaces": true,
