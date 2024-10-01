@@ -53,18 +53,18 @@ go mod tidy
 import "encoding/json"
 
 func main() {
-  data := map[string]interface{}{
-    "name": "John Doe",
-    "age": 30,
-  }
+    data := map[string]interface{}{
+    	"name": "John Doe",
+    	"age": 30,
+    }
 
-  jsonString, err := json.Marshal(data)
-  if err != nil {
-    fmt.Println(err)
-    return
-  }
+    jsonString, err := json.Marshal(data)
+    if err != nil {
+    	fmt.Println(err)
+    	return
+    }
 
-  fmt.Println(string(jsonString))
+    fmt.Println(string(jsonString))
 }
 ```
 
@@ -76,16 +76,16 @@ func main() {
 import "encoding/json"
 
 func main() {
-  jsonString := `{"name":"John Doe","age":30}`
+	jsonString := `{"name":"John Doe","age":30}`
 
-  var data map[string]interface{}
-  err := json.Unmarshal([]byte(jsonString), &data)
-  if err != nil {
-    fmt.Println(err)
-    return
-  }
+	var data map[string]interface{}
+	err := json.Unmarshal([]byte(jsonString), &data)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
-  fmt.Println(data)
+	fmt.Println(data)
 }
 ```
 
@@ -118,20 +118,19 @@ go get github.com/joho/godotenv
 package main
 
 import (
-  "fmt"
-  "log"
-  "os"
-
-  "github.com/joho/godotenv"
+	"fmt"
+	"log"
+	"os"
+	"github.com/joho/godotenv"
 )
 
 func main() {
-  err := godotenv.Load(".env")
-  if err != nil {
-    log.Fatal("Error loading .env file")
-  }
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 
-  MONGODB_URI := os.Getenv("MONGODB_URI")
+	MONGODB_URI := os.Getenv("MONGODB_URI")
 }
 ```
 
@@ -153,25 +152,25 @@ go get github.com/gofiber/fiber/v2
 
 ```go
 func main() {
-  app := fiber.New()
+	app := fiber.New()
 
-  app.Use(middleware)
+	app.Use(middleware)
 
-  app.Get("/", func(c *fiber.Ctx) error {
-    return c.SendString("Hello, World!")
-  })
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("Hello, World!")
+	})
 
-  app.Listen(":3000")
+	app.Listen(":3000")
 }
 func middleware(next http.Handler) http.Handler {
-  return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-    // Middleware logic
+  	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// Middleware logic
 
-    // .
-    // .
-    // .
+		// .
+		// .
+		// .
 
-    next.ServeHTTP(w, r)
+    	next.ServeHTTP(w, r)
   })
 }
 ```
@@ -183,15 +182,15 @@ func middleware(next http.Handler) http.Handler {
 
 ```go
 func main() {
-  app := fiber.New()
+	app := fiber.New()
 
-  app.Get("/", helloHandler)
+	app.Get("/", helloHandler)
 
-  app.Listen(":3000")
+	app.Listen(":3000")
 }
 
 func helloHandler(c *fiber.Ctx) error {
-  return c.SendString("Hello, World!")
+	return c.SendString("Hello, World!")
 }
 ```
 
